@@ -1,7 +1,7 @@
 import styles from './ProjectsStyles.module.css';
 import viberr from '../../assets/viberr.png';
 import freshBurger from '../../assets/fresh-burger.png';
-import hipsster from '../../assets/lms.JPG';
+import lms from "../../assets/lms.jpg";
 import fitLift from '../../assets/fitlift.png';
 import ProjectCard from '../../common/ProjectCard';
 import weather from '../../assets/wp.JPG';
@@ -24,7 +24,7 @@ function Projects() {
           p="Ai chatBot"
         />
         <ProjectCard
-          src={hipsster}
+          src={lms}
           link="https://github.com/aditya739/Lms.git"
           h3="LMS"
           p="Affordable Learning, Teaching Made Simple."
