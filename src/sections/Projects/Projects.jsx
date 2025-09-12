@@ -1,9 +1,10 @@
 import styles from './ProjectsStyles.module.css';
 import viberr from '../../assets/viberr.png';
 import freshBurger from '../../assets/fresh-burger.png';
-import hipsster from '../../assets/hipsster.png';
+import hipsster from '../../assets/lms.JPG';
 import fitLift from '../../assets/fitlift.png';
 import ProjectCard from '../../common/ProjectCard';
+import weather from '../../assets/wp.JPG';
 
 function Projects() {
   return (
@@ -12,27 +13,33 @@ function Projects() {
       <div className={styles.projectsContainer}>
         <ProjectCard
           src={viberr}
-          link="https://github.com/Ade-mir/company-landing-page-2"
-          h3="Viberr"
-          p="Streaming App"
+          link="https://github.com/aditya739/Affiliate-Auto_poster.git"
+          h3="AffiPost"
+          p="Turn Deals into Posts, Effortlessly"
         />
         <ProjectCard
           src={freshBurger}
-          link="https://github.com/Ade-mir/company-landing-page-2"
-          h3="Fresh Burger"
-          p="Hamburger Restaurant"
+          link="https://github.com/aditya739/chatbot.git"
+          h3="gBot"
+          p="Ai chatBot"
         />
         <ProjectCard
           src={hipsster}
-          link="https://github.com/Ade-mir/company-landing-page-2"
-          h3="Hipsster"
-          p="Glasses Shop"
+          link="https://github.com/aditya739/Lms.git"
+          h3="LMS"
+          p="Affordable Learning, Teaching Made Simple."
         />
         <ProjectCard
           src={fitLift}
           link="https://github.com/Ade-mir/company-landing-page-2"
-          h3="FitLift"
-          p="Fitness App"
+          h3="EMP"
+          p="Fitness ApSmartly assign, track, and manage"
+        />
+         <ProjectCard
+          src={weather}
+          link="https://github.com/aditya739/weather_app.git"
+          h3="ApWeatherly"
+          p="weather app that delivers real-time forecasts with a clean interface"
         />
       </div>
     </section>
