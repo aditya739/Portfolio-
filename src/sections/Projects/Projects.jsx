@@ -26,7 +26,7 @@ function Projects() {
         />
         <ProjectCard
           src={lms}
-          link="https://github.com/aditya739/Lms.git"
+          link="https://lms-full-stack-amber.vercel.app"
           h3="LMS"
           p="Affordable Learning, Teaching Made Simple."
         />
