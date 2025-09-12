@@ -4,7 +4,8 @@ import freshBurger from '../../assets/fresh-burger.png';
 import lms from "../../assets/lms.jpg";
 import fitLift from '../../assets/fitlift.png';
 import ProjectCard from '../../common/ProjectCard';
-import weather from '../../assets/wp.JPG';
+import weather from "../../assets/wp.jpg";
+
 
 function Projects() {
   return (
