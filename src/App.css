@@ -1,7 +1,8 @@
 :root {
-  /* Neo-Brutalist Palette */
+  /* Neo-Brutalist Palette (Refined) */
   --background-color: #f8f7f1;
   --text-color: #1f2937;
+  --subtext-color: #4b5563;
   --primary-color: #f59e0b;
   /* Amber */
   --secondary-color: #000000;
@@ -10,30 +11,34 @@
   --card-bg: #ffffff;
   --card-border: 2px solid #000000;
   --shadow-hard: 4px 4px 0px #000000;
-  --shadow-hard-hover: 8px 8px 0px #000000;
+  --shadow-hard-hover: 6px 6px 0px #000000;
 
   /* Font Families */
   --font-heading: 'Space Mono', monospace;
   --font-body: 'Space Mono', monospace;
+
+  /* Spacing */
+  --section-padding: 80px 20px;
+  --container-max-width: 1200px;
 }
 
 [data-theme='dark'] {
-  /* Optional: Reverse Neo-Brutalist (High Contrast Dark) */
   --background-color: #121212;
-  --text-color: #ffffff;
+  --text-color: #f3f4f6;
+  --subtext-color: #9ca3af;
   --primary-color: #f59e0b;
   --secondary-color: #ffffff;
-  --card-bg: #1e1e1e;
+  --card-bg: #1f2937;
   --card-border: 2px solid #ffffff;
   --shadow-hard: 4px 4px 0px #ffffff;
-  --shadow-hard-hover: 8px 8px 0px #ffffff;
+  --shadow-hard-hover: 6px 6px 0px #ffffff;
 }
 
 body {
   background-color: var(--background-color);
-  /* Dot Pattern */
+  /* Subtler Dot Pattern */
   background-image: radial-gradient(#dcd9d1 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-size: 32px 32px;
 
   color: var(--text-color);
   font-family: var(--font-body);
@@ -44,14 +49,17 @@ body {
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  line-height: 1.6;
+  /* Improved Readability */
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 80px;
+  /* Increased distinct separation */
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   padding: 40px 20px;
 }
 
@@ -66,29 +74,33 @@ h6 {
   padding: 0;
   color: var(--text-color);
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  /* Responsive typography */
   font-weight: 700;
   margin-bottom: 0.5em;
-  /* Hard shadow on text */
-  text-shadow: 2px 2px 0px var(--primary-color);
-  background: none;
-  -webkit-text-fill-color: initial;
+  text-shadow: 3px 3px 0px var(--primary-color);
+  line-height: 1.1;
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
+  /* Relaxed reading experience */
   font-weight: 400;
+  color: var(--subtext-color);
+  /* Slightly softer text for contrast */
+  max-width: 65ch;
+  /* Optimal reading width */
 }
 
 a {
@@ -99,10 +111,11 @@ a {
 
 .sectionTitle {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+  /* More breathing room */
   display: inline-block;
   align-self: center;
-  border-bottom: 4px solid var(--primary-color);
+  border-bottom: 5px solid var(--primary-color);
   padding-bottom: 5px;
 }
 
@@ -118,17 +131,16 @@ a {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--background-color);
-  border-left: 2px solid var(--secondary-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--secondary-color);
-  border: 2px solid var(--secondary-color);
+  background: var(--subtext-color);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -138,6 +150,7 @@ a {
 /* Responsiveness */
 @media (width >=800px) {
   #root {
-    gap: 100px;
+    gap: 120px;
+    /* Even more space on desktop */
   }
 }
