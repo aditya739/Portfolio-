@@ -1,33 +1,40 @@
 :root {
-  --background-color: #0f0f1a;
-  --text-color: #e0e0e0;
-  --primary-color: #00d2ff;
-  --secondary-color: #3a7bd5;
-  --accent-color: #ff007a;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(20, 20, 30, 0.7);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  
+  /* Neo-Brutalist Palette */
+  --background-color: #f8f7f1;
+  --text-color: #1f2937;
+  --primary-color: #f59e0b;
+  /* Amber */
+  --secondary-color: #000000;
+  --accent-color: #3b82f6;
+
+  --card-bg: #ffffff;
+  --card-border: 2px solid #000000;
+  --shadow-hard: 4px 4px 0px #000000;
+  --shadow-hard-hover: 8px 8px 0px #000000;
+
   /* Font Families */
-  --font-heading: 'Inter', 'Rubik', sans-serif;
-  --font-body: 'Roboto Mono', monospace;
+  --font-heading: 'Space Mono', monospace;
+  --font-body: 'Space Mono', monospace;
 }
 
-[data-theme='light'] {
-  --background-color: #f0f2f5;
-  --text-color: #333;
-  --primary-color: #0987f2;
-  --secondary-color: #00b4d8;
-  --accent-color: #ff4757;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --card-border: rgba(0, 0, 0, 0.05);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+[data-theme='dark'] {
+  /* Optional: Reverse Neo-Brutalist (High Contrast Dark) */
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #f59e0b;
+  --secondary-color: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-border: 2px solid #ffffff;
+  --shadow-hard: 4px 4px 0px #ffffff;
+  --shadow-hard-hover: 8px 8px 0px #ffffff;
 }
 
 body {
   background-color: var(--background-color);
+  /* Dot Pattern */
+  background-image: radial-gradient(#dcd9d1 1px, transparent 1px);
+  background-size: 24px 24px;
+
   color: var(--text-color);
   font-family: var(--font-body);
   margin: 0;
@@ -45,36 +52,43 @@ body {
   gap: 60px;
   width: 100%;
   max-width: 1200px;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   margin: 0;
   padding: 0;
   color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: -1px;
 }
 
 h1 {
-  font-size: 3rem;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 3.5rem;
+  font-weight: 700;
   margin-bottom: 0.5em;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  /* Hard shadow on text */
+  text-shadow: 2px 2px 0px var(--primary-color);
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.25rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 p {
   font-size: 1rem;
   line-height: 1.6;
-  opacity: 0.9;
+  font-weight: 400;
 }
 
 a {
@@ -86,51 +100,35 @@ a {
 .sectionTitle {
   text-align: center;
   margin-bottom: 40px;
-  position: relative;
   display: inline-block;
   align-self: center;
+  border-bottom: 4px solid var(--primary-color);
+  padding-bottom: 5px;
 }
 
 .sectionTitle::after {
-  content: '';
-  display: block;
-  width: 50%;
-  height: 4px;
-  background: var(--accent-color);
-  margin: 10px auto 0;
-  border-radius: 2px;
+  content: none;
 }
 
-/* Glassmorphism Utilities */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 8px 32px 0 var(--shadow-color);
-}
-
+/* Base Utility Classes */
 .hover {
   cursor: pointer;
   transition: transform 0.2s;
 }
 
-.hover:hover {
-  transform: translateY(-2px);
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--background-color);
+  border-left: 2px solid var(--secondary-color);
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
-  border-radius: 5px;
+  border: 2px solid var(--secondary-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -138,10 +136,8 @@ a {
 }
 
 /* Responsiveness */
-@media (width >= 800px) {
+@media (width >=800px) {
   #root {
     gap: 100px;
   }
-  h1 { font-size: 4rem; }
-  h2 { font-size: 2.5rem; }
 }

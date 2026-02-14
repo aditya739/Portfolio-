@@ -12,8 +12,16 @@
 .hero {
   max-width: 220px;
   width: 100%;
-  border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  /* Boxy */
+  border: 2px solid var(--secondary-color);
+  box-shadow: var(--shadow-hard);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.hero:hover {
+  box-shadow: var(--shadow-hard-hover);
+  transform: translate(-4px, -4px);
 }
 
 .colorModeContainer {
@@ -42,7 +50,11 @@ h1 {
 
 h2 {
   font-size: 1.4rem;
-  letter-spacing: 2px;
+  font-weight: 700;
+  background-color: var(--primary-color);
+  display: inline-block;
+  align-self: center;
+  padding: 0 10px;
 }
 
 .description {
@@ -60,30 +72,42 @@ span {
 
 span a img {
   width: 32px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
 }
 
 span a img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 
 button {
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 25px;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  /* Invert text */
+  border: 2px solid var(--secondary-color);
+  border-radius: 0;
+  /* Boxy */
   padding: 14px 32px;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0, 210, 255, 0.4);
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  text-transform: uppercase;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+button:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0;
 }
 
 /* Larger screens */
@@ -105,6 +129,7 @@ button:hover {
 
   h2 {
     font-size: 1.6rem;
+    align-self: flex-start;
   }
 
   .description {
