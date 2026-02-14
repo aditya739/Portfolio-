@@ -33,14 +33,14 @@
 .container a {
   width: fit-content;
   text-decoration: none;
-  color: #fff; /* white text to match Hero */
+  color: var(--text-color);
   font-weight: 600;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .container a:hover {
   transform: scale(1.08);
-  color: #00e0ff; /* matches Hero accent */
+  color: var(--primary-color);
 }
 
 .projectsContainer {
@@ -51,7 +51,7 @@
   padding: 20px 0;
 }
 
-@media (width >= 800px) {
+@media (width >=800px) {
   .projectsContainer {
     flex-direction: row;
     flex-wrap: wrap;

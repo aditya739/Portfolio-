@@ -67,24 +67,27 @@ span a img:hover {
   transform: scale(1.2);
 }
 
+
 button {
-  background-color: var(--btn-color);
-  color: var(--btn-text-color);
+  background-color: var(--primary-color);
+  color: #fff;
   border: none;
   border-radius: 25px;
   padding: 14px 32px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 210, 255, 0.4);
 }
 
 button:hover {
   transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 210, 255, 0.6);
 }
 
 /* Larger screens */
-@media (width >= 800px) {
+@media (width >=800px) {
   .container {
     flex-direction: row-reverse;
     align-items: center;
@@ -111,7 +114,7 @@ button:hover {
 }
 
 /* Very large screens */
-@media (width >= 1400px) {
+@media (width >=1400px) {
   .hero {
     max-width: 380px;
   }
