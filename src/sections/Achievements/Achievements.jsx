@@ -17,9 +17,14 @@ function Achievements() {
                 </div>
 
                 <div className={styles.card}>
-                    <h3>Super 30 Program</h3>
-                    <p>Top 30 Students Statewide</p>
+                    <h3>Trekathon 1.0</h3>
+                    <p>IoT Technical Excellence</p>
                     <span>2022</span>
+                </div>
+                <div className={styles.card}>
+                    <h3>Leadership</h3>
+                    <p>Campus Ambassador (Physics Wallah) & Outreach Intern (Pregrad)</p>
+                    <span>2022 - 2023</span>
                 </div>
             </div>
         </section>
