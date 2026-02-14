@@ -1,7 +1,7 @@
 import styles from "./HeroStyles.module.css";
 import heroImg from "../../assets/Design uten navn.png";
-import sun from "../../assets/sun.svg";
-import moon from "../../assets/moon.svg";
+// import sun from "../../assets/sun.svg";
+// import moon from "../../assets/moon.svg";
 import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg";
 import linkedinLight from "../../assets/linkedin-light.svg";
@@ -9,9 +9,8 @@ import linkedinDark from "../../assets/linkedin-dark.svg";
 import { useTheme } from "../../common/ThemeContext";
 
 function Hero() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
-  const themeIcon = theme === "light" ? sun : moon;
   const githubIcon = theme === "light" ? githubLight : githubDark;
   const linkedinIcon = theme === "light" ? linkedinLight : linkedinDark;
 
@@ -22,12 +21,6 @@ function Hero() {
           src={heroImg}
           className={styles.hero}
           alt="Profile picture of Aditya Singh"
-        />
-        <img
-          className={styles.colorMode}
-          src={themeIcon}
-          alt="Color mode icon"
-          onClick={toggleTheme}
         />
       </div>
 

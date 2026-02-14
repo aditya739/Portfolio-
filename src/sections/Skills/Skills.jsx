@@ -11,25 +11,37 @@ function Skills() {
   return (
     <section id="skills" className={styles.container}>
       <h1 className="sectionTitle">Skills</h1>
+
+      <h3>Frontend</h3>
       <div className={styles.skillList}>
         <SkillList src={checkMarkIcon} skill="HTML" />
         <SkillList src={checkMarkIcon} skill="CSS" />
         <SkillList src={checkMarkIcon} skill="JavaScript" />
-        
-        <SkillList src={checkMarkIcon} skill="Node" />
-      </div>
-      <hr />
-      <div className={styles.skillList}>
         <SkillList src={checkMarkIcon} skill="React" />
-       
-        <SkillList src={checkMarkIcon} skill="Tailwind CSS" />
+        <SkillList src={checkMarkIcon} skill="Tailwind" />
+        <SkillList src={checkMarkIcon} skill="Redux" />
       </div>
+
       <hr />
+
+      <h3>Backend</h3>
       <div className={styles.skillList}>
-      
+        <SkillList src={checkMarkIcon} skill="Node.js" />
+        <SkillList src={checkMarkIcon} skill="Express" />
+        <SkillList src={checkMarkIcon} skill="MongoDB" />
+        <SkillList src={checkMarkIcon} skill="Mongoose" />
+        <SkillList src={checkMarkIcon} skill="REST API" />
+      </div>
+
+      <hr />
+
+      <h3>Tools</h3>
+      <div className={styles.skillList}>
         <SkillList src={checkMarkIcon} skill="Git" />
-       
-        <SkillList src={checkMarkIcon} skill="Bootstrap" />
+        <SkillList src={checkMarkIcon} skill="GitHub" />
+        <SkillList src={checkMarkIcon} skill="Postman" />
+        <SkillList src={checkMarkIcon} skill="VS Code" />
+        <SkillList src={checkMarkIcon} skill="Vite" />
       </div>
     </section>
   );

@@ -1,0 +1,126 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--background-color);
+    border-bottom: 2px solid var(--text-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu a {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+.menu a:hover {
+    color: var(--primary-color);
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.menu a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.themeIcon {
+    width: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.themeIcon:hover {
+    transform: rotate(180deg);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+}
+
+/* Mobile Responsive */
+@media (width <=768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--background-color);
+        border-bottom: 2px solid var(--text-color);
+        padding: 20px 0;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+
+    .menu.open {
+        max-height: 300px;
+        /* Adjust as needed */
+    }
+
+    .menu a {
+        text-align: center;
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    .menu a:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}

@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.achievementsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--secondary-color);
+    box-shadow: var(--shadow-hard);
+    padding: 30px;
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--shadow-hard-hover);
+}
+
+.card h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    display: inline-block;
+    align-self: flex-start;
+    padding: 2px 8px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: var(--subtext-color);
+    margin: 0;
+}
+
+.card span {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: auto;
+    border-top: 2px solid var(--secondary-color);
+    padding-top: 10px;
+}
+
+@media (width >=800px) {
+    .achievementsContainer {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
