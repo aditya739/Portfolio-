@@ -15,11 +15,7 @@ function Achievements() {
                     <p>Innovation Finalist</p>
                     <span>2023-24</span>
                 </div>
-                <div className={styles.card}>
-                    <h3>Data Structures</h3>
-                    <p>600+ Questions Solved on LeetCode & GFG</p>
-                    <span>Ongoing</span>
-                </div>
+
                 <div className={styles.card}>
                     <h3>Super 30 Program</h3>
                     <p>Top 30 Students Statewide</p>
