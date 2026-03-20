@@ -1,9 +1,188 @@
-.featured-badge {
-  background-color: #ffd700;
-  color: white;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-weight: bold;
-  display: inline-block;
-  margin: 5px 0;
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  max-width: 62ch;
+  margin: 0 auto;
+  color: var(--subtext-color);
+}
+
+.featuredWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.featuredCard {
+  width: 100%;
+  max-width: 820px;
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--shadow-hard);
+  padding: 28px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.featuredCard:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.headerDots {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.featuredTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.featuredBadge {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 0;
+  font-weight: 800;
+  padding: 4px 10px;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+}
+
+.featuredCard h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.featuredCard p {
+  margin-top: 10px;
+  margin-bottom: 18px;
+  color: var(--subtext-color);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 12px 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border: 2px solid var(--secondary-color);
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.cta:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.gridTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--shadow-hard);
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hard-hover);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.cardDesc {
+  margin: 10px 0 16px 0;
+  color: var(--subtext-color);
+}
+
+.card .ctaRow {
+  margin-top: auto;
+}
+
+.loading,
+.error {
+  text-align: center;
+  color: var(--subtext-color);
+}
+
+@media (width >= 800px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width >= 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

@@ -21,6 +21,7 @@ function Navbar() {
                 <a href="#hero" onClick={() => setIsOpen(false)}>Home</a>
                 <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
                 <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
+                <a href="#experience" onClick={() => setIsOpen(false)}>Experience</a>
                 <a href="#achievements" onClick={() => setIsOpen(false)}>Achievements</a>
                 <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
             </div>

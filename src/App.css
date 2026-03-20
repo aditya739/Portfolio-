@@ -8,6 +8,12 @@
   --secondary-color: #000000;
   --accent-color: #3b82f6;
 
+  /* Form / UI extras (used by section CSS modules) */
+  --form-text-color: var(--text-color);
+  --btn-color: var(--primary-color);
+  --btn-text-color: var(--secondary-color);
+  --footer-text-color: var(--subtext-color);
+
   --card-bg: #ffffff;
   --card-border: 2px solid #000000;
   --shadow-hard: 4px 4px 0px #000000;
@@ -32,6 +38,11 @@
   --card-border: 2px solid #ffffff;
   --shadow-hard: 4px 4px 0px #ffffff;
   --shadow-hard-hover: 6px 6px 0px #ffffff;
+
+  --form-text-color: var(--text-color);
+  --btn-color: var(--primary-color);
+  --btn-text-color: var(--secondary-color);
+  --footer-text-color: var(--subtext-color);
 }
 
 body {

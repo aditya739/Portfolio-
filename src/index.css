@@ -1,0 +1,19 @@
+/* Minimal global styles.
+   Most styling lives in `App.css`; this file exists because `main.jsx` imports it. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve keyboard focus visibility across the app. */
+:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 3px;
+}
+

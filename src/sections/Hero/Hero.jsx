@@ -6,6 +6,7 @@ import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg";
 import linkedinLight from "../../assets/linkedin-light.svg";
 import linkedinDark from "../../assets/linkedin-dark.svg";
+import cvPdf from "../../assets/cv.pdf";
 import { useTheme } from "../../common/ThemeContext";
 
 function Hero() {
@@ -44,7 +45,7 @@ function Hero() {
           Focused on clean code, performance, and user-centric design.
         </p>
 
-        <a href="" download>
+        <a href={cvPdf} download="Aditya-Singh-Resume.pdf">
           <button className="hover">Resume</button>
         </a>
       </div>
