@@ -1,0 +1,243 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.panel {
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--shadow-hard);
+  padding: 20px;
+}
+
+.loginCard {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.note {
+  color: var(--subtext-color);
+  line-height: 1.6;
+  margin: 0 0 14px 0;
+}
+
+.error {
+  color: #ef4444;
+  margin-top: 12px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  border: 2px solid var(--secondary-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  padding: 10px 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.tabBtnActive {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.ghostBtn {
+  border: 2px solid var(--secondary-color);
+  background-color: transparent;
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  padding: 10px 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  border: 2px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  padding: 10px 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (width >= 900px) {
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sectionCard {
+  border: 2px solid var(--secondary-color);
+  box-shadow: 4px 4px 0 var(--secondary-color);
+  background-color: var(--background-color);
+  padding: 16px;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  margin: 0 0 10px 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  background-color: var(--card-bg);
+  border: 2px solid var(--secondary-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.itemMain {
+  flex: 1;
+  min-width: 240px;
+}
+
+.itemName {
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.itemMeta {
+  color: var(--subtext-color);
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.muted {
+  color: var(--subtext-color);
+}
+
+.featuredTag {
+  margin-left: 10px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  border: 2px solid var(--secondary-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.itemActions {
+  display: flex;
+  gap: 10px;
+}
+
+.smallBtn {
+  border: 2px solid var(--secondary-color);
+  background-color: var(--background-color);
+  box-shadow: 2px 2px 0 var(--secondary-color);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.smallBtnDanger {
+  border: 2px solid #ef4444;
+  background-color: transparent;
+  box-shadow: 2px 2px 0 #ef4444;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #ef4444;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+input,
+textarea {
+  border-radius: 0;
+  border: 2px solid var(--secondary-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 10px 12px;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.btnRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+

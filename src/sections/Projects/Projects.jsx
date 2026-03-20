@@ -1,68 +1,23 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import styles from './ProjectsStyles.module.css';
 
-const GITHUB_USER = 'aditya739';
-const FEATURED_REPO_NAME = 'PayOrchestrator';
+import { usePortfolioData } from '../../admin/usePortfolioData';
 
 function Projects() {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const { data, isInitializing, error } = usePortfolioData();
 
-  useEffect(() => {
-    let cancelled = false;
+  const featuredAndOthers = useMemo(() => {
+    const projects = Array.isArray(data?.projects) ? data.projects : [];
 
-    async function fetchRepos() {
-      setLoading(true);
-      setError('');
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${GITHUB_USER}/repos?per_page=12&sort=created&direction=desc`,
-          {
-            headers: {
-              Accept: 'application/vnd.github+json',
-            },
-          }
-        );
+    const featured =
+      projects.find((p) => p.featured) || (projects.length > 0 ? projects[0] : null);
 
-        if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (!cancelled) setRepos(Array.isArray(data) ? data : []);
-      } catch (e) {
-        if (!cancelled) setError(e?.message || 'Failed to load projects');
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    }
-
-    fetchRepos();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const sortedRepos = useMemo(() => {
-    return repos
-      .filter((repo) => repo && !repo.fork)
-      .sort((a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0));
-  }, [repos]);
-
-  const featured = useMemo(() => {
-    return (
-      sortedRepos.find((repo) => repo.name === FEATURED_REPO_NAME) ||
-      sortedRepos[0] ||
-      null
-    );
-  }, [sortedRepos]);
-
-  const others = useMemo(() => {
-    return sortedRepos
-      .filter((repo) => repo.name !== FEATURED_REPO_NAME)
+    const others = projects
+      .filter((p) => featured ? p.id !== featured.id : true)
       .slice(0, 6);
-  }, [sortedRepos]);
+
+    return { featured, others };
+  }, [data]);
 
   const dotHeader = (
     <div className={styles.headerDots} aria-hidden="true">
@@ -82,35 +37,35 @@ function Projects() {
         performance, and shipping clean, maintainable code.
       </p>
 
-      {loading && <div className={styles.loading}>Loading projects...</div>}
+      {isInitializing && <div className={styles.loading}>Loading projects...</div>}
 
-      {!loading && error && <div className={styles.error}>{error}</div>}
+      {!isInitializing && error && <div className={styles.error}>{error}</div>}
 
-      {!loading && !error && featured && (
+      {!isInitializing && !error && featuredAndOthers.featured && (
         <div className={styles.featuredWrap}>
           <div className={styles.featuredCard}>
             {dotHeader}
 
             <div className={styles.featuredTitleRow}>
-              <h2>{featured.name}</h2>
+              <h2>{featuredAndOthers.featured.name}</h2>
               <span className={styles.featuredBadge}>Featured</span>
             </div>
 
-            <p>{featured.description || 'No description provided.'}</p>
+            <p>{featuredAndOthers.featured.description || 'No description provided.'}</p>
 
             <div className={styles.metaRow}>
               <span className={styles.chip}>
-                Language: {languageLabel(featured.language)}
+                Language: {languageLabel(featuredAndOthers.featured.language)}
               </span>
               <span className={styles.chip}>
-                Stars: {featured.stargazers_count ?? 0}
+                Stars: {featuredAndOthers.featured.stars ?? 0}
               </span>
             </div>
 
             <div className={styles.ctaRow}>
               <a
                 className={styles.cta}
-                href={featured.html_url}
+                href={featuredAndOthers.featured.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -121,35 +76,35 @@ function Projects() {
         </div>
       )}
 
-      {!loading && !error && others.length > 0 && (
+      {!isInitializing && !error && featuredAndOthers.others.length > 0 && (
         <div>
           <div className={styles.gridTitle}>
             <h3>More Projects</h3>
           </div>
           <div className={styles.grid}>
-            {others.map((repo) => (
-              <div key={repo.id} className={styles.card}>
+            {featuredAndOthers.others.map((project) => (
+              <div key={project.id} className={styles.card}>
                 {dotHeader}
                 <div className={styles.cardTop}>
-                  <h3>{repo.name}</h3>
+                  <h3>{project.name}</h3>
                 </div>
                 <p className={styles.cardDesc}>
-                  {repo.description || 'No description provided.'}
+                  {project.description || 'No description provided.'}
                 </p>
 
                 <div className={styles.metaRow}>
                   <span className={styles.chip}>
-                    {languageLabel(repo.language)}
+                    {languageLabel(project.language)}
                   </span>
                   <span className={styles.chip}>
-                    Stars: {repo.stargazers_count ?? 0}
+                    Stars: {project.stars ?? 0}
                   </span>
                 </div>
 
                 <div className={styles.ctaRow}>
                   <a
                     className={styles.cta}
-                    href={repo.html_url}
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

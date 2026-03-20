@@ -24,6 +24,7 @@ function Navbar() {
                 <a href="#experience" onClick={() => setIsOpen(false)}>Experience</a>
                 <a href="#achievements" onClick={() => setIsOpen(false)}>Achievements</a>
                 <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+                <a href="#admin" onClick={() => setIsOpen(false)}>Admin</a>
             </div>
 
             <div className={styles.controls}>

@@ -105,6 +105,11 @@
         transition: max-height 0.3s ease-out;
     }
 
+    /* Required because Navbar.jsx uses `styles.open` in a CSS module. */
+    .open {
+        max-height: 300px;
+    }
+
     .menu.open {
         max-height: 300px;
         /* Adjust as needed */

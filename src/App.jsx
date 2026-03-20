@@ -7,6 +7,7 @@ import Skills from './sections/Skills/Skills';
 import Navbar from './sections/Navbar/Navbar';
 import Achievements from './sections/Achievements/Achievements';
 import Experience from './sections/Experience/Experience';
+import AdminPanel from './sections/Admin/AdminPanel';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Achievements />
       <Contact />
       <Footer />
+      <AdminPanel />
     </>
   );
 }
