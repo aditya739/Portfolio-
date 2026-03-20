@@ -2,7 +2,7 @@ const UNLOCK_STORAGE_KEY = 'portfolio_admin_unlocked_v1';
 
 function getAdminPassword() {
   // Vite will inline env vars at build time.
-  return import.meta.env.VITE_ADMIN_PASSWORD || 'admin';
+  return import.meta.env.VITE_ADMIN_PASSWORD || 'Aditya@7251';
 }
 
 function getUnlockExpiryMs() {
@@ -37,6 +37,8 @@ export function lockAdmin() {
 }
 
 export function getAdminPasswordHint() {
-  return import.meta.env.VITE_ADMIN_PASSWORD ? 'Set via VITE_ADMIN_PASSWORD' : 'Default is "admin" (dev only)';
+  return import.meta.env.VITE_ADMIN_PASSWORD
+    ? 'Set via VITE_ADMIN_PASSWORD'
+    : 'Default is "Aditya@7251" (dev only)';
 }
 
