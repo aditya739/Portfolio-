@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react';
 import styles from './AdminPanelStyles.module.css';
 import { usePortfolioData } from '../../admin/usePortfolioData';
 import {
-  getAdminPasswordHint,
   isAdminUnlocked,
   lockAdmin,
   unlockAdmin,
@@ -267,11 +266,6 @@ function AdminPanel() {
         <div className={styles.panel}>
           {!unlocked ? (
             <div className={styles.loginCard}>
-              <p className={styles.note}>
-                Admin is stored in your browser (`localStorage`). To secure it, set your password via{' '}
-                <code>VITE_ADMIN_PASSWORD</code>. {getAdminPasswordHint()}
-              </p>
-
               <form onSubmit={onLogin} className={styles.form}>
                 <div className={styles.field}>
                   <label htmlFor="adminPassword">Password</label>
