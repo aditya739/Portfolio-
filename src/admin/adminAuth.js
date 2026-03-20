@@ -37,8 +37,7 @@ export function lockAdmin() {
 }
 
 export function getAdminPasswordHint() {
-  return import.meta.env.VITE_ADMIN_PASSWORD
-    ? 'Set via VITE_ADMIN_PASSWORD'
-    : 'Default is "Aditya@7251" (dev only)';
+  // Do not reveal any default password in UI text.
+  return 'Set via VITE_ADMIN_PASSWORD';
 }
 
