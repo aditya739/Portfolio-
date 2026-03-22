@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styles from './SkillsStyles.module.css';
 import checkMarkIconDark from '../../assets/checkmark-dark.svg';
 import checkMarkIconLight from '../../assets/checkmark-light.svg';
@@ -10,18 +11,48 @@ function Skills() {
   const checkMarkIcon = theme === 'light' ? checkMarkIconLight : checkMarkIconDark;
   const { data, isInitializing } = usePortfolioData();
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 10, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
   return (
     <section id="skills" className={styles.container}>
-      <h1 className="sectionTitle">Technical Skills</h1>
+      <motion.h1
+        className="sectionTitle"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        Technical Skills
+      </motion.h1>
 
       {isInitializing && <p className={styles.note}>Loading skills...</p>}
 
       {!isInitializing && data && (
-        <div className={styles.skillList}>
+        <motion.div
+          className={styles.skillList}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {data.skills.map((skill) => (
-            <SkillList key={skill.id} src={checkMarkIcon} skill={skill.name} />
+            <motion.div key={skill.id} variants={itemVariants}>
+              <SkillList src={checkMarkIcon} skill={skill.name} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
     </section>
   );

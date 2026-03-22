@@ -1,11 +1,25 @@
+import { motion } from 'framer-motion';
 import styles from './ExperienceStyles.module.css';
 
 function Experience() {
     return (
         <section id="experience" className={styles.container}>
-            <h1 className="sectionTitle">Experience</h1>
+            <motion.h1
+                className="sectionTitle"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+            >
+                Experience
+            </motion.h1>
             <div className={styles.experienceContainer}>
-                <div className={styles.card}>
+                <motion.div
+                    className={styles.card}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                >
                     <div className={styles.header}>
                         <h3>Codec Technologies</h3>
                         <span>Dec 2024 - Feb 2025</span>
@@ -17,7 +31,7 @@ function Experience() {
                         <li>Optimized system performance by refactoring middleware and MongoDB queries, reducing API latency by <strong>35%</strong>.</li>
                         <li>Collaborated in an Agile team of 5 engineers, contributing <strong>20+ code-reviewed pull requests</strong>.</li>
                     </ul>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

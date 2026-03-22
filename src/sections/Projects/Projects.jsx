@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { motion } from 'framer-motion';
 import styles from './ProjectsStyles.module.css';
 
 import { usePortfolioData } from '../../admin/usePortfolioData';
@@ -29,21 +30,48 @@ function Projects() {
 
   const languageLabel = (language) => (language ? language : 'Full Stack');
 
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { type: 'spring', damping: 20 } }
+  };
+
   return (
     <section id="projects" className={styles.container}>
-      <h1 className="sectionTitle">Projects</h1>
-      <p className={styles.subtitle}>
+      <motion.h1
+        className="sectionTitle"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        Projects
+      </motion.h1>
+      <motion.p
+        className={styles.subtitle}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
         A snapshot of my recent work. I focus on scalable architecture,
         performance, and shipping clean, maintainable code.
-      </p>
+      </motion.p>
 
       {isInitializing && <div className={styles.loading}>Loading projects...</div>}
 
       {!isInitializing && error && <div className={styles.error}>{error}</div>}
 
       {!isInitializing && !error && featuredAndOthers.featured && (
-        <div className={styles.featuredWrap}>
-          <div className={styles.featuredCard}>
+        <motion.div
+          className={styles.featuredWrap}
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div
+            className={styles.featuredCard}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          >
             {dotHeader}
 
             <div className={styles.featuredTitleRow}>
@@ -72,8 +100,8 @@ function Projects() {
                 View on GitHub
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
 
       {!isInitializing && !error && featuredAndOthers.others.length > 0 && (
@@ -83,7 +111,15 @@ function Projects() {
           </div>
           <div className={styles.grid}>
             {featuredAndOthers.others.map((project) => (
-              <div key={project.id} className={styles.card}>
+              <motion.div
+                key={project.id}
+                className={styles.card}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                whileHover={{ y: -5, scale: 1.02 }}
+                viewport={{ once: true }}
+              >
                 {dotHeader}
                 <div className={styles.cardTop}>
                   <h3>{project.name}</h3>
@@ -111,7 +147,7 @@ function Projects() {
                     View
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
