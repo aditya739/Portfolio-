@@ -2,26 +2,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  align-items: center;
+  min-height: 100vh;
+  gap: 60px;
   text-align: center;
-  height: 100dvh;
-  min-height: 600px;
-  padding: 20px;
+  padding: 100px 24px;
 }
 
 .hero {
-  max-width: 220px;
+  max-width: 280px;
   width: 100%;
-  border-radius: 0;
-  /* Boxy */
-  border: 2px solid var(--secondary-color);
-  box-shadow: var(--shadow-hard);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border-radius: 24px;
+  border: 4px solid var(--bg-primary);
+  box-shadow: var(--shadow-xl);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .hero:hover {
-  box-shadow: var(--shadow-hard-hover);
-  transform: translate(-4px, -4px);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
 }
 
 .colorModeContainer {
@@ -30,129 +29,109 @@
   justify-content: center;
 }
 
-.colorMode {
-  position: absolute;
-  right: -20px;
-  top: 10px;
-  width: 30px;
-  cursor: pointer;
-}
-
 .info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
 }
 
 h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  background-color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-primary);
   display: inline-block;
   align-self: center;
-  padding: 0 10px;
+  margin-top: -10px;
 }
 
 .description {
-  max-width: 40ch;
+  max-width: 50ch;
   margin: 0 auto;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
 }
 
-span {
+.socialIcons {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 30px;
+  margin-top: 10px;
 }
 
-span a img {
+.socialIcons a img {
   width: 32px;
-  transition: transform 0.2s ease;
-  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.5));
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  filter: none;
 }
 
-span a img:hover {
-  transform: scale(1.1);
+.socialIcons a img:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.1);
 }
-
 
 button {
-  background-color: var(--secondary-color);
-  color: var(--background-color);
-  /* Invert text */
-  border: 2px solid var(--secondary-color);
-  border-radius: 0;
-  /* Boxy */
-  padding: 14px 32px;
-  font-size: 1rem;
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 36px;
+  font-size: 1.1rem;
   font-weight: 700;
-  font-family: 'Space Mono', monospace;
   cursor: pointer;
-  box-shadow: var(--shadow-hard);
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  text-transform: none;
+  font-family: inherit;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-hard-hover);
+  background-color: var(--accent-secondary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
-button:active {
-  transform: translate(0, 0);
-  box-shadow: 0 0 0;
-}
-
-/* Larger screens */
-@media (width >=800px) {
+/* Desktop Styles */
+@media (min-width: 900px) {
   .container {
     flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-evenly;
     text-align: left;
+    justify-content: space-between;
+    gap: 80px;
   }
 
   .hero {
-    max-width: 320px;
+    max-width: 400px;
+  }
+
+  .info {
+    align-items: flex-start;
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   h2 {
-    font-size: 1.6rem;
     align-self: flex-start;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    max-width: 55ch;
-  }
-}
-
-/* Very large screens */
-@media (width >=1400px) {
-  .hero {
-    max-width: 380px;
-  }
-
-  h1 {
-    font-size: 3.5rem;
-  }
-
-  h2 {
     font-size: 2rem;
   }
 
   .description {
-    font-size: 1.2rem;
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .socialIcons {
+    justify-content: flex-start;
   }
 }

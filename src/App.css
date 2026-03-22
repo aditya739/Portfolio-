@@ -1,79 +1,94 @@
 :root {
-  /* Neo-Brutalist Palette (Refined) */
-  --background-color: #f8f7f1;
-  --text-color: #1f2937;
-  --subtext-color: #4b5563;
-  --primary-color: #f59e0b;
-  /* Amber */
-  --secondary-color: #000000;
-  --accent-color: #3b82f6;
-
-  /* Form / UI extras (used by section CSS modules) */
-  --form-text-color: var(--text-color);
-  --btn-color: var(--primary-color);
-  --btn-text-color: var(--secondary-color);
-  --footer-text-color: var(--subtext-color);
-
+  /* Minimalist Premium Palette */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  /* Slate 900 */
+  --text-secondary: #475569;
+  /* Slate 600 */
+  --accent-primary: #6366f1;
+  /* Indigo 500 */
+  --accent-secondary: #4f46e5;
+  /* Indigo 600 */
+  --border-color: #e2e8f0;
   --card-bg: #ffffff;
-  --card-border: 2px solid #000000;
-  --shadow-hard: 4px 4px 0px #000000;
-  --shadow-hard-hover: 6px 6px 0px #000000;
 
-  /* Font Families */
-  --font-heading: 'Space Mono', monospace;
-  --font-body: 'Space Mono', monospace;
+  /* Soft Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-  /* Spacing */
-  --section-padding: 80px 20px;
-  --container-max-width: 1200px;
+  /* Fonts */
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Layout */
+  --container-max-width: 1100px;
+  --section-padding: 100px 20px;
 }
 
 [data-theme='dark'] {
-  --background-color: #121212;
-  --text-color: #f3f4f6;
-  --subtext-color: #9ca3af;
-  --primary-color: #f59e0b;
-  --secondary-color: #ffffff;
-  --card-bg: #1f2937;
-  --card-border: 2px solid #ffffff;
-  --shadow-hard: 4px 4px 0px #ffffff;
-  --shadow-hard-hover: 6px 6px 0px #ffffff;
-
-  --form-text-color: var(--text-color);
-  --btn-color: var(--primary-color);
-  --btn-text-color: var(--secondary-color);
-  --footer-text-color: var(--subtext-color);
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-primary: #818cf8;
+  --accent-secondary: #6366f1;
+  --border-color: #1e293b;
+  --card-bg: #1e293b;
 }
 
 body {
-  background-color: var(--background-color);
-  /* Subtler Dot Pattern */
-  background-image: radial-gradient(#dcd9d1 1px, transparent 1px);
-  background-size: 32px 32px;
-
-  color: var(--text-color);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: var(--font-body);
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden;
   line-height: 1.6;
-  /* Improved Readability */
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  /* Increased distinct separation */
   width: 100%;
-  max-width: var(--container-max-width);
-  padding: 40px 20px;
 }
 
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section Header Styles */
+.sectionTitle {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 4px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+}
+
+/* Typography */
 h1,
 h2,
 h3,
@@ -82,86 +97,89 @@ h5,
 h6 {
   font-family: var(--font-heading);
   margin: 0;
-  padding: 0;
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  /* Responsive typography */
-  font-weight: 700;
-  margin-bottom: 0.5em;
-  text-shadow: 3px 3px 0px var(--primary-color);
-  line-height: 1.1;
-}
-
-h2 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.7;
-  /* Relaxed reading experience */
-  font-weight: 400;
-  color: var(--subtext-color);
-  /* Slightly softer text for contrast */
-  max-width: 65ch;
-  /* Optimal reading width */
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sectionTitle {
-  text-align: center;
-  margin-bottom: 60px;
-  /* More breathing room */
-  display: inline-block;
-  align-self: center;
-  border-bottom: 5px solid var(--primary-color);
-  padding-bottom: 5px;
+/* Modern Card Utilities */
+.card-glass {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
-.sectionTitle::after {
-  content: none;
+.card-glass:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
 }
 
-/* Base Utility Classes */
+/* Button Refinement */
 .hover {
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+}
+
+button {
+  border: none;
+  background: var(--accent-primary);
+  color: white;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  background: var(--accent-secondary);
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.02);
+}
+
+/* Navigation Overlays */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(var(--bg-primary), 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background-color);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--subtext-color);
-  border-radius: 0;
+  background: var(--border-color);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-color);
+  background: var(--text-secondary);
 }
 
-/* Responsiveness */
-@media (width >=800px) {
-  #root {
-    gap: 120px;
-    /* Even more space on desktop */
-  }
+/* Global Transitions */
+* {
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
